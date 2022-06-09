@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TextField from "../../Fields/TextFields";
 import SelectFields from "../../Fields/SelectFields";
 import { useState } from "react";
@@ -35,6 +35,7 @@ type body = {
 
 //
 export const Signup = () => {
+  const navigate = useNavigate()
 
   //*STATES
   const [haveTeam, setHaveTeam] = useState<boolean>(false);
@@ -51,8 +52,8 @@ URL = "https://goscrum-api.alkemy.org/auth/register"
     // console.log({user:body})
     try {
       const {data} = await axios.post(REQUEST.URL, {user})
-      console.log(data.result.insertedId)
-      return <Navigate to="/" replace={true} />
+      
+      navigate("/")
     } catch (error) {
       if(error instanceof Error)
       swal({
