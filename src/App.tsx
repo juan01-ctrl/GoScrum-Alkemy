@@ -23,7 +23,7 @@ const IsAuth = ({ children }: AuthProp) => {
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/GoScrum-Alkemy">
         <Routes>
           <Route
             path="/"

@@ -1,6 +1,6 @@
 {
-  "name": "go-scrum",
-  "homepage": "https://juan01-ctrl.github.io",
+  "name": "goscrum-alkemy",
+  "homepage": "https://juan01-ctrl.github.io/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

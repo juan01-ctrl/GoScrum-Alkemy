@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/GoScrumAlkemy/static/css/main.dc67bd09.css",
-    "main.js": "/GoScrumAlkemy/static/js/main.e7d285f7.js",
-    "index.html": "/GoScrumAlkemy/index.html",
-    "main.dc67bd09.css.map": "/GoScrumAlkemy/static/css/main.dc67bd09.css.map",
-    "main.e7d285f7.js.map": "/GoScrumAlkemy/static/js/main.e7d285f7.js.map"
+    "main.css": "/static/css/main.dc67bd09.css",
+    "main.js": "/static/js/main.b846d535.js",
+    "index.html": "/index.html",
+    "main.dc67bd09.css.map": "/static/css/main.dc67bd09.css.map",
+    "main.b846d535.js.map": "/static/js/main.b846d535.js.map"
   },
   "entrypoints": [
     "static/css/main.dc67bd09.css",
-    "static/js/main.e7d285f7.js"
+    "static/js/main.b846d535.js"
   ]
 }
