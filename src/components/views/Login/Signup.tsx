@@ -90,7 +90,7 @@ URL = "https://goscrum-api.alkemy.org/auth/register"
       .required("Confirm password is required"),
     region: Yup.string()
       .oneOf(
-        ["Otro", "Latam", "Brasil", "America del Norte"],
+        ["Otro", "Latam", "Brazil", "America del Norte"],
         "You must select a region"
       )
       .required("Region is required"),
