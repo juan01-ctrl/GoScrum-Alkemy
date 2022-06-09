@@ -51,7 +51,7 @@ URL = "https://goscrum-api.alkemy.org/auth/register"
   const PostRegister = async(user:body) =>{
     // console.log({user:body})
     try {
-      const {data} = await axios.post(REQUEST.URL, {user})
+      const data = await axios.post(REQUEST.URL, {user})
       
       navigate("/")
     } catch (error) {
