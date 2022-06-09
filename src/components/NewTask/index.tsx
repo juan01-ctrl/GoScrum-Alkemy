@@ -1,6 +1,6 @@
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import React, { useContext, useState } from "react";
 
 import { TaskWithoutId } from "../../interfaces/tasksWithoutId";
@@ -18,59 +18,47 @@ import {
   SelectFields,
 } from "./NewTaskElements";
 
-
-
 const NewTask = () => {
-
-  const {setTasks,setIsLoading} = useContext(TasksContext);
+  const { setTasks, setIsLoading } = useContext(TasksContext);
 
   const initialForm: TaskWithoutId = {
     title: "",
     status: "",
     importance: "",
     description: "",
-
   };
 
   const [formTask, setFormTask] = useState<TaskWithoutId>(initialForm);
   const [error, setError] = useState<string>("");
- 
-
-
 
   //* AXIOS REQUEST
   enum REQUEST {
     METHOD = "POST",
-    URL = "https://goscrum-api.alkemy.org/task"
-    }
-    
-    
-    
-    const PostTask = async(task:TaskWithoutId) =>{
-      // console.log({user:body})
-      setIsLoading(true)
-      try {
-        const token =  localStorage.getItem("token")
-        const config = {
-          "headers": { Authorization: `Bearer ${token}` }
-      }
-
-      const {data} = await axios.post(REQUEST.URL, {task},config)
-      setTasks(prev=> [...prev,data.result.task])
-    
-
-    } catch (error) {
-    if(error instanceof Error){
-     return setError(error.message)
-    }
-    setError("Request Error")
-    }finally{
-      setIsLoading(false)
-    }
+    URL = "https://goscrum-api.alkemy.org/task",
   }
-  
-  
-    //* Handles Events
+
+  const PostTask = async (task: TaskWithoutId) => {
+    // console.log({user:body})
+    setIsLoading(true);
+    try {
+      const token = localStorage.getItem("token");
+      const config = {
+        headers: { Authorization: `Bearer ${token}` },
+      };
+
+      const { data } = await axios.post(REQUEST.URL, { task }, config);
+      setTasks((prev) => [...prev, data.result.task]);
+    } catch (error) {
+      if (error instanceof Error) {
+        return setError(error.message);
+      }
+      setError("Request Error");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  //* Handles Events
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormTask({
       ...formTask,
@@ -78,18 +66,25 @@ const NewTask = () => {
     });
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    setError("")
+    setError("");
     e.preventDefault();
- 
+
     const { title, status, importance, description } = formTask;
     // const newTask = {...formTask, id:tasks.length}
 
-    if (!title.trim() || (status === "Select a state" || !status) || (!importance || importance === "Select a priority")|| !description.trim()) {
+    if (
+      !title.trim() ||
+      status === "Select a state" ||
+      !status ||
+      !importance ||
+      importance === "Select a priority" ||
+      !description.trim()
+    ) {
       setError("Please Complete All fields");
       return;
     }
 
-    PostTask(formTask)
+    PostTask(formTask);
     toast("Task created successfully!");
   };
 
@@ -135,7 +130,7 @@ const NewTask = () => {
             value={formTask.description}
           />
           {error && <p className="error-task">{error}</p>}
-          <OrangeButton buttonText="Create" marginTop="2em" type="submit"/>
+          <OrangeButton buttonText="Create" marginTop="2em" type="submit" />
         </CreateTaskForm>
       </FormContainer>
     </CreateTaskContainer>
