@@ -6,11 +6,14 @@ import Logo from "../../assets/Logo"
 
 import { Header,  User,NavRightContainer } from "./NavElements";
 import OrangeButton from "../Button";
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
+  const navigate = useNavigate()
+
   const handleLogout = (e:React.MouseEvent<SVGSVGElement, MouseEvent>) =>{
-      window.location.href = "/"
-      localStorage.removeItem("token")
+    localStorage.removeItem("token")
+    navigate("/")
   }
   return(
     <Header>

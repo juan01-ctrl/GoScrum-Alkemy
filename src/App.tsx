@@ -8,7 +8,7 @@ type AuthProp = {
 };
 const RequireAuth = ({ children }: AuthProp) => {
   if (!localStorage.getItem("token")) {
-    return <Navigate to="/login" replace={true} />;
+    return <Navigate to="/" replace={true} />;
   }
   return <>{children}</>;
 };

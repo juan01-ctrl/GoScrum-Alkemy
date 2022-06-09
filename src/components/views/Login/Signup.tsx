@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import TextField from "../../Fields/TextFields";
 import SelectFields from "../../Fields/SelectFields";
 import { useState } from "react";
@@ -51,7 +51,7 @@ URL = "https://goscrum-api.alkemy.org/auth/register"
     try {
       const {data} = await axios.post(REQUEST.URL, {user})
       console.log(data.result.insertedId)
-      window.location.href = "/GoScrum-Alkemy"
+      return <Navigate to="/" replace={true} />
     } catch (error) {
       if(error instanceof Error)
       alert(error.message)

@@ -3,7 +3,7 @@ import axios from "axios";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import TextField from "../../Fields/TextFields";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import swal from 'sweetalert';
 
 //* TYPES
@@ -14,7 +14,7 @@ type body = {
 };
 
 export const Login = () => {
- 
+ const navigate = useNavigate()
 
   //* AXIOS REQUEST
   enum REQUEST {
@@ -28,8 +28,8 @@ export const Login = () => {
       .post(REQUEST.URL, user)
       .then(({ data }) => {
         localStorage.setItem("token", data.result.token);
-        window.location.href = "/GoScrum-Alkemy/tasklist";
         localStorage.setItem("user", data.result.user.userName);
+         navigate("/tasklist")
       })
       .catch((err) => 
       swal({
