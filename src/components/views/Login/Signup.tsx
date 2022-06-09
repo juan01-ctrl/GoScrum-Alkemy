@@ -121,7 +121,10 @@ URL = "https://goscrum-api.alkemy.org/auth/register"
           onSubmit={(values) => handleSubmit(values)}
           validationSchema={validateSignup}
         >
-          {(formik) => (
+          {(formik) => {
+
+            const {continent} = formik.values
+            return(
             <div className="signup">
               <div className="form-signup">
                 <h1 className="signup-title">Sign Up</h1>
@@ -156,12 +159,12 @@ URL = "https://goscrum-api.alkemy.org/auth/register"
 
                     // setContinent={setContinent}
                   />
-                  {formik.values.continent !== "" && (
+                  {continent && (
                     <SelectFields
                       name="region"
                       options={
-                        formik.values.continent === "Europa" ||
-                        formik.values.continent === "Otro"
+                        continent === "Europa" ||
+                        continent === "Otro"
                           ? ["Select a Region", "Otro"]
                           : ["Select a Region", "Latam", "Brazil"]
                       }
@@ -176,7 +179,7 @@ URL = "https://goscrum-api.alkemy.org/auth/register"
                 </Link>
               </div>
             </div>
-          )}
+          )}}
         </Formik>
       }
     </>
