@@ -51,7 +51,7 @@ URL = "https://goscrum-api.alkemy.org/auth/register"
     try {
       const {data} = await axios.post(REQUEST.URL, {user})
       console.log(data.result.insertedId)
-      window.location.href = "/"
+      window.location.href = "/GoScrum-Alkemy"
     } catch (error) {
       if(error instanceof Error)
       alert(error.message)

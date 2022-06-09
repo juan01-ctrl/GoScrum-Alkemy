@@ -4,6 +4,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import TextField from "../../Fields/TextFields";
 import { Link } from "react-router-dom";
+import swal from 'sweetalert';
 
 //* TYPES
 
@@ -13,7 +14,7 @@ type body = {
 };
 
 export const Login = () => {
-  const [error, setError] = useState<string>("");
+ 
 
   //* AXIOS REQUEST
   enum REQUEST {
@@ -23,15 +24,19 @@ export const Login = () => {
 
   const PostRegister = (user: body) => {
     // console.log({user:body})
-    setError("");
     axios
       .post(REQUEST.URL, user)
       .then(({ data }) => {
         localStorage.setItem("token", data.result.token);
-        window.location.href = "/tasklist";
+        window.location.href = "/GoScrum-Alkemy/tasklist";
         localStorage.setItem("user", data.result.user.userName);
       })
-      .catch((err) => setError(err.message));
+      .catch((err) => 
+      swal({
+        title: "Login Refused",
+        text: "That account does not exist!",
+        icon: "error",
+      }));
   };
 
   //* HANDLES
@@ -68,9 +73,7 @@ export const Login = () => {
               <Form>
                 <TextField label="userName" name="userName" type="text" />
                 <TextField label="Password" name="password" type="password" />
-                {error && (
-                  <span className="error">That account does not exist</span>
-                )}
+               
                 <button type="submit" className="submit-btn-form">
                   Login
                 </button>

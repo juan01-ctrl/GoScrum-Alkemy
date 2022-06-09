@@ -1,6 +1,6 @@
 {
   "name": "goscrum-alkemy",
-  "homepage": "https://juan01-ctrl.github.io/",
+  "homepage": "https://juan01-ctrl.github.io/GoScrum-Alkemy/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,6 +22,7 @@
     "react-toastify": "^9.0.2",
     "styled-components": "^5.3.5",
     "styled-icons": "^10.45.0",
+    "sweetalert": "^2.1.2",
     "typescript": "^4.7.2",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
