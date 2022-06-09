@@ -1,38 +1,167 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/*? SIGN UP FORM */
+
+
+/** Input Switch */
+.lbl{
+    display: inline-block;
+    width: 55px;
+    height: 28px;
+    background: #f7aeae;
+    border-radius: 100px;
+    cursor: pointer;
+    position: relative;
+    transition: .2s;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+   
+  .lbl::after{
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border-radius: 100px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: .3s ease-in-out;
+    box-shadow: 2px 1px 5px 0px rgba(0,0,0,0.75);
   }
-  to {
-    transform: rotate(360deg);
+   
+  #switch:checked + .lbl::after{
+    left: 30px;
+    background-color: #ff452b;
   }
+   
+  /* #switch:checked + .lbl{
+    background: #ff452b;
+  } */
+   
+  #switch{
+    display: none;
+  }
+
+/** General styles register */
+.error{
+    padding: .3em 0;
+    color:hwb(0 11% 1%);
+}
+
+.signup-title,.login-title{
+    color: #000;
+    text-decoration: underline 2px solid #ff452b;
+    text-underline-offset: 3px;
+margin-bottom: 1em;
+    
+}
+
+
+.signup,.login{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(247, 227, 224);
+    padding: 2em 0;
+
+}
+
+.form-signup,.form-login{
+    width: 80vw;
+    padding: 2em;
+    background-color: #fff;
+    box-shadow:3px 3px 5px 0px rgba(0,0,0,0.45);
+    border-radius: 6px;
+  }
+ 
+    
+    .submit-btn-form{
+    display: block;
+margin-top: 1rem;
+padding: .5em 1em;
+font-size: 1.2em;
+color: #fff;
+background-color: #ff452b;
+border: none;
+outline: none;
+cursor: pointer;
+transition: .4s ease-in-out;
+margin: 1.2em auto .8em;
+width: 100%;
+border-radius: 6px;
+border:1px solid #ff452b ;
+}
+.submit-btn-form:hover{
+    background-color: #fff;
+    color:#ff452b ;
+   
+}
+
+.redirect-login-signup{
+display: inline-block;
+color:rgb(163, 160, 160);
+width: 100%;
+text-align: center;
+text-decoration: none;
+}
+
+@media screen and (min-width:680px){
+  .form-signup,.form-login{
+    width:500px;
+    padding: 1em 2em;
+  }
+  
+.signup,.login{
+  padding: 1em 0;
+}
+  
+
+}
+
+/*? NAV */
+.logout{
+  width: 2.5em;
+  cursor:pointer;
+  margin-left:1em
+}
+
+.logo{
+  width: 6em;
+  cursor:pointer
+}
+
+@media screen and (min-width:650px){
+  .logo{
+    width: 8em;
+
+  }
+  .logout{
+    width: 4em;
+    margin-left:2em
+  }
+  
+}
+/*? TODO List */
+@media screen and (min-width:900px) {
+  .todo-section{
+    display: flex;
+  }
+  
+}
+/** Create Task  */
+.error-task{
+  color:hwb(0 11% 1%);
+margin-bottom: 0;
+}
+
+/* Task List */
+
+.empty-task{
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #ff452b;
+  margin: 0 0 1em;
+  /* text-align: center; */
 }

@@ -1,24 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import './App.css';
+import {Signup,Login} from './components/views/Login';
+import TodoList from './components/views/TodoList';
+
+
+type AuthProp ={
+  children:React.ReactNode
+} 
+const RequireAuth = ({children}:AuthProp) =>{
+  if(!localStorage.getItem("token")){
+  return <Navigate to="/login" replace={true}/>
+  }
+  return <>{children}</>
+}
+
+const IsAuth = ({children}:AuthProp) =>{
+  if(localStorage.getItem("token")){
+  return <Navigate to="/tasklist" replace={true}/>
+  }
+  return <>{children}</>
+}
+
 
 function App() {
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<IsAuth><Login /></IsAuth>} />
+      <Route path="signup" element={<IsAuth><Signup/></IsAuth>}/>
+       <Route path="tasklist" element={<RequireAuth><TodoList/></RequireAuth>}/>
+    </Routes>
+  </BrowserRouter>
     </div>
   );
 }
