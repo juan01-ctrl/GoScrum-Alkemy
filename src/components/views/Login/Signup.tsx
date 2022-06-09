@@ -6,6 +6,7 @@ import TextField from "../../Fields/TextFields";
 import SelectFields from "../../Fields/SelectFields";
 import { useState } from "react";
 import InputSwitch from "./InputSwitch";
+import swal from 'sweetalert';
 
 
 //* TYPES
@@ -54,7 +55,11 @@ URL = "https://goscrum-api.alkemy.org/auth/register"
       return <Navigate to="/" replace={true} />
     } catch (error) {
       if(error instanceof Error)
-      alert(error.message)
+      swal({
+        title: "Oops!",
+        text: "That account already exist!",
+        icon: "error",
+      })
     }
   }
 
