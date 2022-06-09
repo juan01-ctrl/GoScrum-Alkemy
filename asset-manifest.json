@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/GoScrum-Alkemy/static/css/main.dc67bd09.css",
+    "main.js": "/GoScrum-Alkemy/static/js/main.146102e3.js",
+    "index.html": "/GoScrum-Alkemy/index.html",
+    "main.dc67bd09.css.map": "/GoScrum-Alkemy/static/css/main.dc67bd09.css.map",
+    "main.146102e3.js.map": "/GoScrum-Alkemy/static/js/main.146102e3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc67bd09.css",
+    "static/js/main.146102e3.js"
+  ]
+}
